@@ -126,8 +126,8 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
 {
   char *ptr;
 
-  if (!strstr(uri, "cgi-bin"))
-  { /* Static content */
+  if (!strstr(uri, "cgi-bin")) // cgi-bin에 있지 않으면 정적 컨텐츠
+  {                            /* Static content */
     strcpy(cgiargs, "");
     strcpy(filename, ".");
     strcat(filename, uri);
