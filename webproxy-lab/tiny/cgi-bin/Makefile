@@ -3,8 +3,8 @@ CFLAGS = -O2 -Wall -I ..
 
 all: adder
 
-adder: adder.c
-	$(CC) $(CFLAGS) -o adder adder.c
+adder: adder.c ../logger.c ../logger.h
+	$(CC) $(CFLAGS) -o adder adder.c ../logger.c
 
 clean:
 	rm -f adder *~

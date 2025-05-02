@@ -7,11 +7,12 @@
  *   - Fixed sprintf() aliasing issue in serve_static(), and clienterror().
  */
 #include "csapp.h"
+#include "logger.h"
 
 void doit(int fd);
 void read_requesthdrs(rio_t *rp);
 int parse_uri(char *uri, char *filename, char *cgiargs);
-void serve_static(int fd, char *filename, int filesize);
+void serve_static(int fd, char *filename, int filesize, char *method);
 void get_filetype(char *filename, char *filetype);
 void serve_dynamic(int fd, char *filename, char *cgiargs);
 void clienterror(int fd, char *cause, char *errnum, char *shortmsg,
@@ -52,13 +53,13 @@ void doit(int fd)
   char filename[MAXLINE], cgiargs[MAXLINE];
   rio_t rio; // 입출력을 위한 변수??
 
-  Rio_readinitb(&rio, fd);           // rio 초기화
+  Rio_readinitb(&rio, fd);           // fd를 rio_t 구조체로 감싸고 초기화
   Rio_readlineb(&rio, buf, MAXLINE); // rio를 통해 buf에 read() 해옴
   printf("Request header:\n");
   printf("%s", buf);
-  sscanf(buf, "%s %s %s", method, uri, version); // 요청 헤더에서 각각 메소드, uri, version 읽어옴
-  if (strcasecmp(method, "GET"))                 // 오직 GET method만 지원함 !! 다른 method가 들어오면 501 응답 리턴
-  {
+  sscanf(buf, "%s %s %s", method, uri, version);               // 요청 헤더에서 각각 메소드, uri, version 읽어옴
+  if (strcasecmp(method, "GET") && strcasecmp(method, "HEAD")) // 오직 GET/HEAD method만 지원함 !! 다른 method가 들어오면 501 응답 리턴
+  {                                                            // strcasecmp는 두 문자열이 같으면 0을 반환함 !1
     clienterror(fd, method, "501", "Not implemeted", "Tiny는 해당 메소드를 지원하지 않음 !!");
     return;
   }
@@ -79,7 +80,7 @@ void doit(int fd)
       clienterror(fd, filename, "403", "Forbidden", "Tiny는 해당 파일을 읽을 수 없음 !!");
       return;
     }
-    serve_static(fd, filename, sbuf.st_size); // 정적 컨텐츠 제공
+    serve_static(fd, filename, sbuf.st_size, method); // 정적 컨텐츠 제공
   }
   else // 동적 컨텐츠 요청일 경우
   {
@@ -117,13 +118,12 @@ void read_requesthdrs(rio_t *rp) // 요청 헤더 읽고 무시하기??
 {
   char buf[MAXLINE];
 
-  Rio_readlineb(rp, buf, MAXLINE); // read 받기
+  Rio_readlineb(rp, buf, MAXLINE); // 첫 줄 읽기
   while (strcmp(buf, "\r\n"))
   {
-    Rio_readlineb(rp, buf, MAXLINE);
-    printf("%s", buf);
+    printf("%s", buf);               // 🔁 이 줄 먼저 출력해야 함!
+    Rio_readlineb(rp, buf, MAXLINE); // 그다음 줄로 이동
   }
-  return;
 }
 
 int parse_uri(char *uri, char *filename, char *cgiargs)
@@ -157,10 +157,11 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
   }
 }
 
-void serve_static(int fd, char *filename, int filesize)
+void serve_static(int fd, char *filename, int filesize, char *method)
 {
   int srcfd;
   char *srcp, filetype[MAXLINE], buf[MAXBUF];
+  rio_t rio;
 
   // HTTP 응답 제작
   get_filetype(filename, filetype);
@@ -168,16 +169,25 @@ void serve_static(int fd, char *filename, int filesize)
   sprintf(buf, "%sServer: Tiny Web Server\r\n", buf);
   sprintf(buf, "%sConnection: close\r\n", buf);
   sprintf(buf, "%sContent-length: %d\r\n", buf, filesize);
-  sprintf(buf, "%sContent-type: %s\r\n", buf, filetype);
+  sprintf(buf, "%sContent-type: %s\r\n\r\n", buf, filetype);
   Rio_writen(fd, buf, strlen(buf)); // HTTP 응답 전송
   printf("Response headers:\n");
   printf("%s", buf);
 
-  srcfd = Open(filename, O_RDONLY, 0);                        // 인자로 받은 정적파일 이름으로 읽기 전용으로 읽어서 파일 포인터 만듬
-  srcp = Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0); // 위에서 연 파일을 메모리에 매핑하고, 해당 매핑 영역의 시작 주소 반환
-  Close(srcfd);                                               // 파일 포인터 닫기 -> 안하면 메모리 누수
-  Rio_writen(fd, srcp, filesize);                             // srcp 시작 주소부터 filesize 만큼을 클라이언트에게 전달
-  Munmap(srcp, filesize);                                     // 매핑된 메모리 해제
+  if (strcasecmp(method, "GET") == 0) // GET method일 경우에만
+  {
+    srcfd = Open(filename, O_RDONLY, 0); // 인자로 받은 정적파일 이름으로 읽기 전용으로 읽어서 파일 포인터 만듬
+    Rio_readinitb(&rio, srcfd);
+    // srcp = Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0); // 위에서 연 파일을 메모리에 매핑하고, 해당 매핑 영역의 시작 주소 반환
+    // Close(srcfd);                                               // 파일 포인터 닫기 -> 안하면 메모리 누수
+    // Rio_writen(fd, srcp, filesize);                             // srcp 시작 주소부터 filesize 만큼을 클라이언트에게 전달
+    // Munmap(srcp, filesize);                                     // 매핑된 메모리 해제
+    srcp = (char *)Malloc(filesize);
+    Rio_readn(srcfd, srcp, filesize);
+    Close(srcfd);
+    Rio_writen(fd, srcp, filesize);
+    Free(srcp);
+  }
 }
 
 void get_filetype(char *filename, char *filetype)
@@ -196,7 +206,7 @@ void get_filetype(char *filename, char *filetype)
 
 void serve_dynamic(int fd, char *filename, char *cgiargs)
 {
-  char buf[MAXLINE], *emptylsit[] = {NULL};
+  char buf[MAXLINE], *emptylist[] = {NULL};
 
   // HTTP 응답 만들기
   sprintf(buf, "HTTP/1.0 200 OK\r\n");
@@ -210,8 +220,8 @@ void serve_dynamic(int fd, char *filename, char *cgiargs)
   {
     setenv("QUERY_STRING", cgiargs, 1); // 환경변수 QUERY_STRING에 인자 저장
     Dup2(fd, STDOUT_FILENO);            // 표준출력을 넘겨받은 소켓 fd로 덮어쓰기
-    printf("자식 프로세스 진입\n");
-    Execve(filename, emptylsit, environ); // 넘겨받은 파일네임으로 자식 프로세스에서 프로그램 실행
+    log_message("자식 프로세스 진입");
+    Execve(filename, emptylist, environ); // 넘겨받은 파일네임으로 자식 프로세스에서 프로그램 실행
   }
   Wait(NULL);
 }

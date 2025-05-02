@@ -1,0 +1,945 @@
+[Fri May  2 20:49:02 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+
+[Fri May  2 20:52:49 2025] Hostname : b.slack-edge.com, port : 443
+
+
+[Fri May  2 20:53:00 2025] Hostname : a.slack-edge.com, port : 443
+
+
+[Fri May  2 20:53:07 2025] Hostname : b.slack-edge.com, port : 443
+
+
+[Fri May  2 20:53:24 2025] Hostname : a.slack-edge.com, port : 443
+
+
+[Fri May  2 20:53:33 2025] Hostname : b.slack-edge.com, port : 443
+
+
+[Fri May  2 20:53:40 2025] Hostname : a.slack-edge.com, port : 443
+
+
+[Fri May  2 21:10:43 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:15:19 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:15:40 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:17:03 2025] Hostname : b1.nel.goog, port : 443
+
+[Fri May  2 21:23:52 2025] Hostname : clients4.google.com, port : 443
+
+[Fri May  2 21:24:07 2025] Hostname : beacons.gvt2.com, port : 443
+
+[Fri May  2 21:24:18 2025] Hostname : beacons2.gvt2.com, port : 443
+
+[Fri May  2 21:24:21 2025] Hostname : beacons3.gvt2.com, port : 443
+
+[Fri May  2 21:26:38 2025] Hostname : clients4.google.com, port : 443
+
+[Fri May  2 21:28:51 2025] Hostname : 127.0.0.1, port : 7000
+
+[Fri May  2 21:35:14 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 21:37:39 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:37:41 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:38:12 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:38:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:38:40 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:39:02 2025] Hostname : ipv6.msftncsi.com, port : 80
+
+[Fri May  2 21:41:27 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:42:01 2025] Hostname : 127.0.0.1, port : 7000
+
+[Fri May  2 21:44:35 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:44:36 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:45:07 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:45:13 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:45:15 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:45:26 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 21:45:48 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:45:55 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:46:28 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:46:34 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:47:13 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:47:24 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:47:52 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:48:06 2025] Hostname : safebrowsing.googleapis.com, port : 443
+
+[Fri May  2 21:48:30 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:49:02 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:49:17 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:49:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:49:31 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:49:56 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:04 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:12 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:30 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:33 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:35 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:36 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 21:50:41 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:47 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:50:52 2025] Hostname : login.live.com, port : 443
+
+[Fri May  2 21:50:52 2025] Hostname : login.live.com, port : 443
+
+[Fri May  2 21:50:54 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:00 2025] Hostname : login.live.com, port : 443
+
+[Fri May  2 21:51:00 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:06 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:13 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:19 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:25 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:28 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:32 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:51:33 2025] Hostname : ipv6.msftncsi.com, port : 80
+
+[Fri May  2 21:51:57 2025] Hostname : neverssl.com, port : 80
+
+[Fri May  2 21:51:57 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:04 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:13 2025] Hostname : neverssl.com, port : 80
+
+[Fri May  2 21:52:17 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:31 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:37 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:45 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:51 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:52:58 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:06 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:13 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:19 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:27 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:34 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:40 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:46 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:53:53 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:01 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:09 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:16 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:22 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:29 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:37 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:43 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:46 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:49 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:50 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:54:57 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:05 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:30 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:31 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:32 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:40 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:41 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 21:55:48 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:55:56 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:34 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:43 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:49 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:56:55 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:02 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:08 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:13 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:21 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:27 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:32 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:39 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:45 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:52 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:56 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 21:57:58 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:57:59 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 21:58:03 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 21:58:05 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:58:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:58:11 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 21:58:17 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:58:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:58:32 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:21 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:27 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:34 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:42 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:48 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:55 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 21:59:55 2025] Hostname : clientservices.googleapis.com, port : 443
+
+[Fri May  2 21:59:55 2025] Hostname : clientservices.googleapis.com, port : 80
+
+[Fri May  2 21:59:58 2025] Hostname : clients4.google.com, port : 443
+
+[Fri May  2 21:59:59 2025] Hostname : clientservices.googleapis.com, port : 443
+
+[Fri May  2 22:00:01 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:00:06 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:00:09 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:00:17 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:00:23 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:00:23 2025] Hostname : ipv6.msftconnecttest.com, port : 80
+
+[Fri May  2 22:02:35 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:02:43 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:02:45 2025] Hostname : ipv6.msftncsi.com, port : 80
+
+[Fri May  2 22:02:56 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:02:58 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:02:59 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:03:00 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:03:21 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:03:21 2025] Hostname : assets.msn.com, port : 443
+
+[Fri May  2 22:03:21 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:03:23 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:03:43 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:03:44 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:03:44 2025] Hostname : assets.msn.com, port : 443
+
+[Fri May  2 22:03:44 2025] Hostname : o72136.ingest.sentry.io, port : 443
+
+[Fri May  2 22:03:47 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:04:08 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:04:14 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:04:16 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:04:36 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:04:42 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:05:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:05:03 2025] Hostname : clients4.google.com, port : 443
+
+[Fri May  2 22:05:03 2025] Hostname : clientservices.googleapis.com, port : 80
+
+[Fri May  2 22:05:05 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:05:25 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:05:29 2025] Hostname : update.code.visualstudio.com, port : 443
+
+[Fri May  2 22:05:34 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:05:55 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:05:55 2025] Hostname : ecs.office.com, port : 443
+
+[Fri May  2 22:05:55 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:05:55 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:06:00 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:02 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:03 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:06:23 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:25 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:27 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:06:48 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:48 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:49 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:06:50 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:07:10 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:07:11 2025] Hostname : neverssl.com, port : 80
+
+[Fri May  2 22:07:14 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:07:35 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:07:35 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:07:41 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:07:43 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:04 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:08:04 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:08:04 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:08:04 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:06 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:08:06 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:10 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:08:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:11 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:17 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:19 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:08:20 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:25 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:27 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:08:48 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:48 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:08:50 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:09:10 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:09:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:09:13 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:09:14 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:09:35 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:09:42 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:09:43 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:04 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:10:09 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:09 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:10:10 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:11 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:12 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:10:12 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:12 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:16 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:10:17 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:25 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:10:25 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:27 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:10:48 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:48 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:49 2025] Hostname : v10.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:10:50 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:11:10 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:11:11 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:11:16 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:11:36 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:11:37 2025] Hostname : safebrowsing.googleapis.com, port : 443
+
+[Fri May  2 22:11:42 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:11:44 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:12:05 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:12:05 2025] Hostname : 172.22.197.174, port : 7000
+
+[Fri May  2 22:14:29 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:14:50 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:15:10 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:15:10 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:15:31 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:15:51 2025] Hostname : clients4.google.com, port : 443
+
+[Fri May  2 22:15:52 2025] Hostname : clientservices.googleapis.com, port : 443
+
+[Fri May  2 22:15:52 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:15:57 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:15:57 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:15:57 2025] Hostname : www.googleapis.com, port : 443
+
+[Fri May  2 22:15:58 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:16:18 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:16:19 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:16:19 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:19 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:20 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:20 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:16:21 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:16:21 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:16:26 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:27 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:16:27 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:16:28 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:35 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:16:36 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:16:36 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:16:42 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:17:03 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:05 2025] Hostname : ic3.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:05 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:17:26 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:30 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:17:50 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:51 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:54 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:17:58 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:18:19 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:19 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:18:19 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:18:21 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:18:22 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:18:26 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:26 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:18:26 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:18:31 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:34 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:18:35 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:18:36 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:18:36 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:18:38 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:39 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:41 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:18:42 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:19:03 2025] Hostname : www.googleapis.com, port : 443
+
+[Fri May  2 22:19:03 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:03 2025] Hostname : www.googleapis.com, port : 443
+
+[Fri May  2 22:19:03 2025] Hostname : v20.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:05 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:19:25 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:26 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:29 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:19:50 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:50 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:56 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:19:58 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:20:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:18 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:19 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:20:19 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:20:21 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:20:21 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:22 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:20:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:25 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:20:26 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:20:30 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:34 2025] Hostname : bespoke-analytics.razerapi.com, port : 443
+
+[Fri May  2 22:20:35 2025] Hostname : b6y6lf1s29.execute-api.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:20:38 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:20:39 2025] Hostname : main.vscode-cdn.net, port : 443
+
+[Fri May  2 22:20:45 2025] Hostname : kinesis.us-east-1.amazonaws.com, port : 443
+
+[Fri May  2 22:21:05 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:21:06 2025] Hostname : 127.0.0.1, port : 7000
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:50 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:51 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:29:56 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:01 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:06 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:11 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:16 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:21 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:30:22 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:30:22 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:30:22 2025] Hostname : clientservices.googleapis.com, port : 443
+
+[Fri May  2 22:30:22 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:30:27 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:32 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:38 2025] Hostname : windows.msn.com, port : 443
+
+[Fri May  2 22:30:39 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:44 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:49 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:30:54 2025] Hostname : clientservices.googleapis.com, port : 80
+
+[Fri May  2 22:30:55 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:30:55 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:00 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:00 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:00 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:00 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:01 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:01 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:01 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:06 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:31:06 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:11 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:16 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:21 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:27 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:31:27 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : marketplace.visualstudio.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : ocws.officeapps.live.com, port : 443
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:32 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:37 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:37 2025] Hostname : substrate.office.com, port : 443
+
+[Fri May  2 22:31:37 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:37 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:37 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:38 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:38 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:38 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:43 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:43 2025] Hostname : afdxtest.z01.azurefd.net, port : 80
+
+[Fri May  2 22:31:49 2025] Hostname : www.bing.com, port : 80
+
+[Fri May  2 22:31:49 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:31:54 2025] Hostname : spo-ring.msedge.net, port : 80
+
+[Fri May  2 22:31:54 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:31:54 2025] Hostname : www.vscode-unpkg.net, port : 443
+
+[Fri May  2 22:32:00 2025] Hostname : neverssl.com, port : 80
+
+[Fri May  2 22:32:00 2025] Hostname : 0eb222d958c4121819698b2843ab9f41.azr.footprintdns.com, port : 80
+
+[Fri May  2 22:34:34 2025] Hostname : 127.0.0.1, port : 7000
+
+[Fri May  2 22:36:45 2025] Hostname : inputsuggestions.msdxcdn.microsoft.com, port : 80
+
+[Fri May  2 22:36:50 2025] Hostname : 127.0.0.1, port : 7000
+
+[Fri May  2 22:40:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:40:29 2025] Hostname : assets.msn.com, port : 443
+
+[Fri May  2 22:40:32 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:40:39 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:40:45 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:40:53 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:40:54 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:40:54 2025] Hostname : config.teams.microsoft.com, port : 443
+
+[Fri May  2 22:40:57 2025] Hostname : 172.22.197.174, port : 8000
+
+[Fri May  2 22:41:00 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:06 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:09 2025] Hostname : 172.22.197.174, port : 8000
+
+[Fri May  2 22:41:10 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:12 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:13 2025] Hostname : mobile.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:18 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:24 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:41:26 2025] Hostname : 172.22.197.174, port : 8000
+
+[Fri May  2 22:41:31 2025] Hostname : self.events.data.microsoft.com, port : 443
+
+[Fri May  2 22:42:20 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:42:43 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:42:51 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:43:07 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:45:29 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:46:18 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:49:28 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:53:40 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:53:44 2025] Hostname : 127.0.0.1, port : 8000
+
+[Fri May  2 22:54:04 2025] Hostname : localhost, port : 4268
+
+[Fri May  2 22:54:04 2025] Hostname : localhost, port : 4268
+
+[Fri May  2 22:54:04 2025] Hostname : localhost, port : 4268
+
+[Fri May  2 22:54:04 2025] Hostname : localhost, port : 4268
+
+[Fri May  2 22:54:04 2025] Hostname : localhost, port : 4268
+
+[Fri May  2 22:54:05 2025] Hostname : localhost, port : 1879
+
+[Fri May  2 22:54:10 2025] Hostname : localhost, port : 32467
+
+[Fri May  2 22:54:10 2025] Hostname : localhost, port : 32467
+
+[Fri May  2 22:54:10 2025] Hostname : localhost, port : 32467
+
+[Fri May  2 22:54:10 2025] Hostname : localhost, port : 32467
+
+[Fri May  2 22:55:23 2025] Hostname : 127.0.0.1, port : 8000
+
