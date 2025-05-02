@@ -1,3 +1,0 @@
-[submodule "webproxy"]
-	path = webproxy
-	url = https://github.com/juniper-j/jungle-log.git
