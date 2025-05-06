@@ -1,24 +1,28 @@
 #include "csapp.h"
 #include "tiny/logger.h"
+#include <semaphore.h>
 
 /* Recommended max cache and object sizes */
 #define MAX_CACHE_SIZE 1049000
 #define MAX_OBJECT_SIZE 102400
+#define MAX_THREADS 10
 
 /* You won't lose style points for including this long line in your code */
 static const char *user_agent_hdr =
     "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 "
     "Firefox/10.0.3\r\n";
 
+sem_t sem;
+
 void process(int fd);
-void get_host_and_port(char *host_header, char *hostname, char *port);
 void make_response(char *send, char *content);
 void read_requesthdrs(rio_t *rp);
 void parse_path_from_uri(const char *uri, char *path);
+void *thread(void *vargp);
 
 int main(int argc, char **argv)
 {
-  int listenfd, connfd;
+  int listenfd, *connfd;
   char hostname[MAXLINE], port[MAXLINE];
   socklen_t clientlen;
   struct sockaddr_storage clientaddr; // 클라이언트의 정보를 담을 구조체
@@ -30,15 +34,22 @@ int main(int argc, char **argv)
   }
 
   listenfd = Open_listenfd(argv[1]); // 리스닝 소켓 오픈
+  sem_init(&sem, 0, MAX_THREADS);    // 세마포어 초기화
+
   while (1)
   {
     clientlen = sizeof(clientaddr);
-    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); // 커넥트 소켓 오픈
+    connfd = malloc(sizeof(int));
+    *connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); // 커넥트 소켓 오픈
     Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE, 0);
     printf("현재 (%s, %s)에서 접속 중입니다\n", hostname, port);
-    process(connfd);
-    Close(connfd);
+
+    pthread_t tid;
+    pthread_create(&tid, NULL, thread, connfd);
+    pthread_detach(tid);
   }
+
+  sem_destroy(&sem); // 세마포어 삭제
 
   return 0;
 }
@@ -85,36 +96,6 @@ void process(int fd) // 클라이언트 소켓을 통해 작업 수행
   }
   printf("%s 에게 전송 완료\n", hostname);
   Close(clntfd);
-}
-
-void get_host_and_port(char *host_header, char *hostname, char *port)
-{
-  char buf[MAXBUF];
-  strncpy(buf, host_header, MAXBUF - 1);
-  buf[MAXBUF - 1] = '\0'; // 널 종료 보장
-
-  if (strncmp(buf, "Host:", 5) != 0)
-  {
-    fprintf(stderr, "Not a Host header\n");
-    exit(1);
-  }
-
-  char *hostport = buf + 5;
-  while (*hostport == ' ')
-    hostport++; // 공백 제거
-
-  char *colon_ptr = strchr(hostport, ':');
-  if (colon_ptr)
-  {
-    *colon_ptr = '\0'; // 포인터가 가리키는 문자를 null로 변경
-    strcpy(hostname, hostport);
-    strcpy(port, colon_ptr + 1);
-  }
-  else // 포트 번호가 구분되어있지 않으면
-  {
-    strcpy(hostname, hostport);
-    strcpy(port, "80"); // 80 포트로 기본 설정
-  }
 }
 
 void read_requesthdrs_and_extract_host(rio_t *rp, char *hostname, char *port)
@@ -186,4 +167,22 @@ void parse_path_from_uri(const char *uri, char *path)
   {
     strcpy(path, "/"); // 경로가 없으면 기본 "/"
   }
+}
+
+void *thread(void *vargp)
+{
+  int connfd = *(int *)vargp;
+  free(vargp); // 메모리 해제
+
+  // 세마포어 wait: 동시 처리 수 감소
+  sem_wait(&sem);
+
+  // 실제 처리
+  process(connfd); // 여기에 클라이언트 처리 코드 작성
+  close(connfd);
+
+  // 처리 완료 후 세마포어 post: 자원 반환
+  sem_post(&sem);
+
+  return NULL;
 }
