@@ -128,9 +128,9 @@ void process(int fd) // 클라이언트 소켓을 통해 작업 수행
   }
   else // 캐시 히트가 났을 때
   {
-    sem_wait(&cache->lock);
+    P(&cache->lock);
     Rio_writen(fd, cache->content, cache->size);
-    sem_post(&cache->lock);
+    V(&cache->lock);
   }
 
   printf("%s 에게 전송 완료\n", hostname);
@@ -214,13 +214,13 @@ void *thread(void *vargp)
   free(vargp); // 메모리 해제
 
   // 세마포어 wait: 동시 처리 수 감소
-  sem_wait(&thread_lock);
+  P(&thread_lock);
 
   process(connfd); // 프로세스 처리
   close(connfd);   // 처리 후 닫기
 
   // 처리 완료 후 자원 반환
-  sem_post(&thread_lock);
+  V(&thread_lock);
 
   return NULL;
 }
@@ -253,22 +253,22 @@ void cache_init()
 
 void cache_store(char *uri, char *data, int size)
 {
-  sem_wait(&cache_size_lock);
+  P(&cache_size_lock);
   if (MAX_CACHE_SIZE - CUR_CACHE_SIZE >= size) // 캐시가 저장될 공간이 충분하면
   {
     CACHE *cur;
     for (cur = cache_head; cur != NULL; cur = cur->next)
     {
-      sem_wait(&cur->lock); // 락을 걸면서 찾기
-      if (cur->size < 0)    // 빈 엔트리를 찾았다면
+      P(&cur->lock);     // 락을 걸면서 찾기
+      if (cur->size < 0) // 빈 엔트리를 찾았다면
         break;
-      sem_post(&cur->lock); // 락 해제, 만약 위 break 문제에서 탈출했다면 아직 락 걸려있음
+      V(&cur->lock); // 락 해제, 만약 위 break 문제에서 탈출했다면 아직 락 걸려있음
     }
     if (!cur) // 캐시 리스트에 빈 공간이 없으면
     {
       CACHE *new_cache = Malloc(sizeof(CACHE)); // 새로운 캐시 엔트리 만들기
       sem_init(&new_cache->lock, 0, 1);
-      sem_wait(&new_cache->lock);
+      P(&new_cache->lock);
       new_cache->content = Malloc(size);
       memcpy(new_cache->content, data, size);
       new_cache->last_used = time(NULL);
@@ -276,7 +276,7 @@ void cache_store(char *uri, char *data, int size)
       new_cache->size = size;
       memcpy(new_cache->uri, uri, strlen(uri) + 1);
       cache_head = new_cache;
-      sem_post(&new_cache->lock);
+      V(&new_cache->lock);
     }
     else // 캐시 리스트의 빈 공간을 찾았을 경우
     {
@@ -285,7 +285,7 @@ void cache_store(char *uri, char *data, int size)
       cur->last_used = time(NULL);            // 현재 시간 할당
       cur->size = size;                       // 캐시 엔트리의 사이즈 저장
       memcpy(cur->uri, uri, strlen(uri) + 1); // 캐시 엔트리의 uri 저장
-      sem_post(&cur->lock);                   // 빈 엔트리의 락 반환
+      V(&cur->lock);                          // 빈 엔트리의 락 반환
     }
   }
   else // 캐시에 저장 공간이 없으면
@@ -300,10 +300,10 @@ void cache_store(char *uri, char *data, int size)
     victim->last_used = time(NULL);            // 마지막 사용 시간 다시 할당
     victim->uri[0] = '\0';                     // uri도 초기화
     memcpy(victim->uri, uri, strlen(uri) + 1); // uri 덮어쓰기
-    sem_post(&victim->lock);                   // 희생자 캐시의 락 해제
+    V(&victim->lock);                          // 희생자 캐시의 락 해제
   }
-  CUR_CACHE_SIZE += size;     // 현재 총 캐시 사이즈를 데이터 사이즈만큼 추가
-  sem_post(&cache_size_lock); // 캐시 사이즈 락 해제
+  CUR_CACHE_SIZE += size; // 현재 총 캐시 사이즈를 데이터 사이즈만큼 추가
+  V(&cache_size_lock);    // 캐시 사이즈 락 해제
 }
 
 CACHE *cache_evict()
@@ -313,17 +313,17 @@ CACHE *cache_evict()
 
   for (CACHE *cur = cache_head; cur != NULL; cur = cur->next)
   {
-    sem_wait(&cur->lock);        // 일단 현재 엔트리에 락을 걸고
+    P(&cur->lock);               // 일단 현재 엔트리에 락을 걸고
     if (cur->last_used < oldest) // 더 오래 전에 사용했었으면
     {
-      if (victim != NULL)        // 이전에 찾아두었던 희생자의 락을
-        sem_post(&victim->lock); // 넘기기 전에 풀기
-      victim = cur;              // 희생자 엔트리를 현재로
-      oldest = cur->last_used;   // 비교 시간을 현재 엔트리 것으로
+      if (victim != NULL)      // 이전에 찾아두었던 희생자의 락을
+        V(&victim->lock);      // 넘기기 전에 풀기
+      victim = cur;            // 희생자 엔트리를 현재로
+      oldest = cur->last_used; // 비교 시간을 현재 엔트리 것으로
     }
     else // 현재 엔트리가 더 최신이면
     {
-      sem_post(&cur->lock); // 아무것도 안하고 락만 풀기 -> 다른 스레드도 써야하니까
+      V(&cur->lock); // 아무것도 안하고 락만 풀기 -> 다른 스레드도 써야하니까
     }
   }
 
@@ -336,14 +336,14 @@ CACHE *cache_find(char *uri)
 
   for (cur = cache_head; cur != NULL; cur = cur->next)
   {
-    sem_wait(&cur->lock); // 일단 락 걸고
+    P(&cur->lock); // 일단 락 걸고
     if (strcmp(uri, cur->uri) == 0)
     {
-      sem_post(&cur->lock);        // 락 해제한 후에
+      V(&cur->lock);               // 락 해제한 후에
       cur->last_used = time(NULL); // 이 엔트리는 지금 사용했다고 갱신
       return cur;                  // 포인터 넘겨주기
     }
-    sem_post(&cur->lock); // 다음 엔트리 순회 전에 락 풀기
+    V(&cur->lock); // 다음 엔트리 순회 전에 락 풀기
   }
 
   return cur;
