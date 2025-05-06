@@ -1,6 +1,5 @@
 #include "csapp.h"
 #include "tiny/logger.h"
-#include <semaphore.h>
 
 /* Recommended max cache and object sizes */
 #define MAX_CACHE_SIZE 1049000
