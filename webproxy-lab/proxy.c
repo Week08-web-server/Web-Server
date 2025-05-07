@@ -5,6 +5,7 @@
 #define MAX_CACHE_SIZE 1049000
 #define MAX_OBJECT_SIZE 102400
 #define MAX_THREADS 10
+#define QUEUE_SIZE 16
 
 /* You won't lose style points for including this long line in your code */
 static const char *user_agent_hdr =
@@ -21,9 +22,21 @@ typedef struct cache_content
   sem_t lock;                 // 각 엔트리마다 세마포어
 } CACHE;
 
+typedef struct
+{
+  int buf[QUEUE_SIZE];
+  int front;
+  int rear;
+  int count;
+  pthread_mutex_t lock;
+  pthread_cond_t not_empty;
+  pthread_cond_t not_full;
+} conn_queue_t;
+
 sem_t thread_lock, cache_size_lock;
 CACHE *cache_head;
 int CUR_CACHE_SIZE = 0;
+conn_queue_t queue;
 
 void process(int fd);
 void read_requesthdrs(rio_t *rp);
@@ -33,6 +46,10 @@ void cache_init();
 CACHE *cache_find(char *uri);
 void cache_store(char *uri, char *data, int size);
 CACHE *cache_evict();
+void queue_init(conn_queue_t *q);
+void queue_push(conn_queue_t *q, int connfd);
+int queue_pop(conn_queue_t *q);
+void *worker(void *arg);
 
 int main(int argc, char **argv)
 {
@@ -51,18 +68,23 @@ int main(int argc, char **argv)
   sem_init(&thread_lock, 0, MAX_THREADS); // 스레드 세마포어 초기화
   sem_init(&cache_size_lock, 0, 1);       // 캐시 사이즈 락 초기화
   cache_init();                           // 캐시 초기화
+  queue_init(&queue);
+
+  // 스레드 풀 생성
+  pthread_t tid[MAX_THREADS];
+  for (int i = 0; i < MAX_THREADS; ++i)
+    pthread_create(&tid[i], NULL, worker, NULL);
 
   while (1)
   {
     clientlen = sizeof(clientaddr);
-    connfd = malloc(sizeof(int));
-    *connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); // 커넥트 소켓 오픈
-    Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE, 0);
+    int connfd = accept(listenfd, (struct sockaddr *)&clientaddr, &clientlen);
+
+    getnameinfo((struct sockaddr *)&clientaddr, clientlen,
+                hostname, MAXLINE, port, MAXLINE, 0);
     printf("현재 (%s, %s)에서 접속 중입니다\n", hostname, port);
 
-    pthread_t tid;
-    pthread_create(&tid, NULL, thread, connfd); // 스레드 생성
-    pthread_detach(tid);                        // 스레드 자원 반환
+    queue_push(&queue, connfd);
   }
 
   sem_destroy(&thread_lock); // 세마포어 삭제 -> 딱히 필요없지만 습관을 위해
@@ -70,62 +92,69 @@ int main(int argc, char **argv)
   return 0;
 }
 
-void process(int fd) // 클라이언트 소켓을 통해 작업 수행
+void process(int fd)
 {
-  int clntfd, total_size = 0;
-  char hostname[MAXLINE], port[MAXLINE], buf[MAXBUF], version[MAXLINE], method[MAXLINE], uri[MAXLINE];
-  char send[MAXBUF], path[MAXBUF], response[MAXLINE];
-  struct addrinfo hints, *res;
+  int clntfd = -1; // 연결용 fd, 캐시 히트 시 -1 유지
+  int total_size = 0;
+
+  char hostname[MAXLINE], port[MAXLINE];
+  char buf[MAXBUF], version[MAXLINE], method[MAXLINE], uri[MAXLINE];
+  char send[MAXBUF], path[MAXBUF];
+  char *response = malloc(MAX_OBJECT_SIZE); // 동적 할당으로 스택 오버플로 방지
   rio_t rio;
   CACHE *cache;
-  // uri정보를 받아서 파싱한 다음 서버랑 프록시로 맺어주기
-  // Host:port 정보가 필요함 (hostname, port)
-  // 그 경로로 똑같은 정보를 요청해서 받은 응답을 클라이언트로 그대로 보내주기
-  // 그럼 일단 서버랑 연결해줘야 하니까 일단 커넥트를 해야할듯?
 
   printf("process on\n");
+
   Rio_readinitb(&rio, fd);
-  Rio_readlineb(&rio, buf, MAXLINE); // 첫 줄 읽기 → method, uri, version
+  if (Rio_readlineb(&rio, buf, MAXLINE) <= 0)
+  {
+    free(response);
+    return; // 연결 종료 시 조기 반환
+  }
+
   sscanf(buf, "%s %s %s", method, uri, version);
   printf("%s\n", buf);
   parse_path_from_uri(uri, path);
 
-  // 헤더 읽기 + host/port 추출
   read_requesthdrs_and_extract_host(&rio, hostname, port);
+  // log_message("Hostname: %s, Port: %s\n", hostname, port);
 
-  char log[MAXLINE];
-  cache = cache_find(uri); // uri를 통해 캐시 엔트리 탐색
-
-  sprintf(log, "Hostname : %s, port : %s\n", hostname, port); // 로그 메세지 작성
-  log_message(log);                                           // 로그 메세지 출력
-
-  if (!cache) // 캐시에 해당 uri가 없을 때
+  cache = cache_find(uri);
+  if (!cache)
   {
-    clntfd = Open_clientfd(hostname, port); // 호스트와 포트로 연결 요청
-    // 연결 성공 후 메소드와 도메인, 버전을 그대로 다시 보내주기
-    memset(send, 0, sizeof(send));                        // 초기화
-    sprintf(send, "%s %s %s\r\n", method, path, version); // send 메세지 생성
-    sprintf(send, "%sHost: %s\r\n", send, hostname);      // 호스트 헤더 명시
-    sprintf(send, "%sConnection: close\r\n\r\n", send);   // 연결 끊어주기
-
-    Rio_writen(clntfd, send, strlen(send)); // send 메세지 보내기
-    ssize_t n;
-    while ((n = read(clntfd, buf, MAXBUF)) > 0) // 응답을 스트림으로 읽어보면서
+    clntfd = Open_clientfd(hostname, port);
+    if (clntfd < 0)
     {
-      Rio_writen(fd, buf, n); // 받은 응답을 바로 한줄씩 브라우저(클라이언트)에게 보내기
+      fprintf(stderr, "Connection to server failed: %s:%s\n", hostname, port);
+      free(response);
+      return;
+    }
 
-      if (total_size + n <= MAXLINE)
-      {
+    snprintf(send, MAXBUF,
+             "%s %s %s\r\n"
+             "Host: %s\r\n"
+             "Connection: close\r\n"
+             "%s\r\n",
+             method, path, version, hostname, user_agent_hdr);
+
+    Rio_writen(clntfd, send, strlen(send));
+
+    ssize_t n;
+    while ((n = read(clntfd, buf, MAXBUF)) > 0)
+    {
+      Rio_writen(fd, buf, n);
+      if (total_size + n <= MAX_OBJECT_SIZE)
         memcpy(response + total_size, buf, n);
-      }
       total_size += n;
     }
-    if (total_size <= MAX_OBJECT_SIZE) // 웹 오브젝트의 크기가 100KB이하일 때
+
+    if (total_size <= MAX_OBJECT_SIZE)
     {
-      cache_store(uri, response, total_size); // 캐시에 저장하기
+      cache_store(uri, response, total_size);
     }
   }
-  else // 캐시 히트가 났을 때
+  else
   {
     P(&cache->lock);
     Rio_writen(fd, cache->content, cache->size);
@@ -133,7 +162,9 @@ void process(int fd) // 클라이언트 소켓을 통해 작업 수행
   }
 
   printf("%s 에게 전송 완료\n", hostname);
-  Close(clntfd);
+  if (clntfd >= 0)
+    Close(clntfd);
+  free(response);
 }
 
 void read_requesthdrs_and_extract_host(rio_t *rp, char *hostname, char *port)
@@ -207,22 +238,22 @@ void parse_path_from_uri(const char *uri, char *path)
   }
 }
 
-void *thread(void *vargp)
-{
-  int connfd = *(int *)vargp;
-  free(vargp); // 메모리 해제
+// void *thread(void *vargp)
+// {
+//   int connfd = *(int *)vargp;
+//   free(vargp); // 메모리 해제
 
-  // 세마포어 wait: 동시 처리 수 감소
-  P(&thread_lock);
+//   // 세마포어 wait: 동시 처리 수 감소
+//   P(&thread_lock);
 
-  process(connfd); // 프로세스 처리
-  close(connfd);   // 처리 후 닫기
+//   process(connfd); // 프로세스 처리
+//   close(connfd);   // 처리 후 닫기
 
-  // 처리 완료 후 자원 반환
-  V(&thread_lock);
+//   // 처리 완료 후 자원 반환
+//   V(&thread_lock);
 
-  return NULL;
-}
+//   return NULL;
+// }
 
 void cache_init()
 {
@@ -346,4 +377,52 @@ CACHE *cache_find(char *uri)
   }
 
   return cur;
+}
+
+void queue_init(conn_queue_t *q)
+{
+  q->front = q->rear = q->count = 0;
+  pthread_mutex_init(&q->lock, NULL);
+  pthread_cond_init(&q->not_empty, NULL);
+  pthread_cond_init(&q->not_full, NULL);
+}
+
+void queue_push(conn_queue_t *q, int connfd)
+{
+  pthread_mutex_lock(&q->lock);
+  while (q->count == QUEUE_SIZE)
+    pthread_cond_wait(&q->not_full, &q->lock);
+
+  q->buf[q->rear] = connfd;
+  q->rear = (q->rear + 1) % QUEUE_SIZE;
+  q->count++;
+
+  pthread_cond_signal(&q->not_empty);
+  pthread_mutex_unlock(&q->lock);
+}
+
+int queue_pop(conn_queue_t *q)
+{
+  pthread_mutex_lock(&q->lock);
+  while (q->count == 0)
+    pthread_cond_wait(&q->not_empty, &q->lock);
+
+  int connfd = q->buf[q->front];
+  q->front = (q->front + 1) % QUEUE_SIZE;
+  q->count--;
+
+  pthread_cond_signal(&q->not_full);
+  pthread_mutex_unlock(&q->lock);
+  return connfd;
+}
+
+void *worker(void *arg)
+{
+  while (1)
+  {
+    int connfd = queue_pop(&queue);
+    process(connfd);
+    close(connfd);
+  }
+  return NULL;
 }
